@@ -3,21 +3,6 @@ calculator = (function () {
     var datos;
 
     return {
-        setDatos: function () {
-            datos = document.getElementById("nums").value;
-            
-        },
-
-        ponerDatos: function (datos2) {
-            var dat = JSON.parse(datos2)
-            $("#resultados").find("#resultsBody").append(
-                "<tr><td>" + dat.mean + "</td><td>" + dat.std + "</td></tr>")
-        
-            
-            // var dataJson = JSON.parse(data);
-            
-        },
-
         obtenerDatos: function () {           
             calculator.setDatos();
             calculadora.getResultadosR('/calculator/calcular/',datos, calculator.ponerDatos);

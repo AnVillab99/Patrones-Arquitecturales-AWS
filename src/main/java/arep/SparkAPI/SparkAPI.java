@@ -3,24 +3,23 @@ package arep.SparkAPI;
 import com.google.gson.Gson;
 import static spark.Spark.*;
 
-public class SparkAPI{
+import java.util.Set;
+
+public class SparkAPI {
     public static void main(String[] args) {
-        
-        
+
         staticFiles.location("/static");
         Gson gson = new Gson();
         port(getPort());
-        
 
-
-        post("/registrar/:name", (req, res) -> {
-            //res.type("application/json");
-            //res.status(201);
+        post("/registro", (req, res) -> {
+            // res.type("application/json");
+            // res.status(201);
             
-            String calculado = req.params(":name");
-            System.out.println(calculado);
-            System.out.println(calculado);
-			return gson.toJson(calculado);
+            String[] calculado = req.body().split("&");
+            
+            
+			return gson.toJson(calculado[1]);
             
         });
         }
