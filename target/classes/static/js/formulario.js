@@ -7,7 +7,7 @@ formulario = (function () {
         compararDatos: function(){
             let a =document.getElementById("name").value;
             let b =document.getElementById("email").value;
-            axios.post('/registro', {
+            axios.post('ec2-34-235-113-51.compute-1.amazonaws.com/registro', {
                 data: ":"+ a + "&" + b + ":",
             })
             .then(function (response) {
