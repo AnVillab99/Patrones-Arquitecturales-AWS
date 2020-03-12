@@ -20,6 +20,7 @@ public class SparkAPI {
         port(getPort());
 
         post("/registro", (req, res) -> {
+            System.out.println("entrooooooooo");
             
             String[] raw = req.body().split(":");
             String[] values = raw[2].split("&");
