@@ -18,6 +18,7 @@ public class SparkAPI {
         staticFiles.location("/static");
         Gson gson = new Gson();
         port(getPort());
+        System.out.println("ya?");
 
         post("/registro", (req, res) -> {
             System.out.println("entrooooooooo");
