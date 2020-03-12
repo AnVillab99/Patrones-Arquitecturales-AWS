@@ -1,11 +1,18 @@
 package arep.SparkAPI;
 
 import com.google.gson.Gson;
+
+import arep.SparkAPI.services.userServices;
+import arep.SparkAPI.services.servicesImpl.userServicesImpl;
+
 import static spark.Spark.*;
 
 import java.util.Set;
 
 public class SparkAPI {
+
+    private static userServices uS = new userServicesImpl();
+
     public static void main(String[] args) {
 
         staticFiles.location("/static");
@@ -13,13 +20,17 @@ public class SparkAPI {
         port(getPort());
 
         post("/registro", (req, res) -> {
-            // res.type("application/json");
-            // res.status(201);
             
-            String[] calculado = req.body().split("&");
+            String[] raw = req.body().split(":");
+            String[] values = raw[2].split("&");
+
+            
+            String response = uS.registerUser(values[0], values[1]);
+
+            return gson.toJson(response);
             
             
-			return gson.toJson(calculado[1]);
+			
             
         });
         }
