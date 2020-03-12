@@ -34,6 +34,14 @@ public class SparkAPI {
 			
             
         });
+        get("/registro", (req, res) -> {
+            System.out.println("entrooooooooo al get");
+            return gson.toJson("ok");
+            
+            
+			
+            
+        });
         }
         
         static int getPort() {
