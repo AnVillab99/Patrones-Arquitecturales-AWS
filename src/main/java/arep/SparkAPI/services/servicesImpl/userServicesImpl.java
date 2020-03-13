@@ -14,10 +14,10 @@ public class userServicesImpl implements userServices {
         
         Boolean registrado = db.registerUser(name, email);
         if(registrado){
-            return " ha sido registrado como usuario";
+            return " ha sido registrado como usuario.";
         }
         else{
-            return " ya se encuentra registrado";
+            return " ya se encuentra registrado como usuario.";
         }
         
     }

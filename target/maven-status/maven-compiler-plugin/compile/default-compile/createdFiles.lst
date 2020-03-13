@@ -1,0 +1,5 @@
+arep\SparkAPI\Persistance\Impl\dbPersistanceImpl.class
+arep\SparkAPI\services\servicesImpl\userServicesImpl.class
+arep\SparkAPI\Persistance\dbPersistance.class
+arep\SparkAPI\SparkAPI.class
+arep\SparkAPI\services\userServices.class

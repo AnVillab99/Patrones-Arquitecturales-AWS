@@ -56,12 +56,15 @@ before((request, response) -> response.header("Access-Control-Allow-Origin", "*"
 			
             
         });
-        get("/", (req, res) -> {
-            System.out.println("entrooooooooo al get");
-            return gson.toJson("ok");
-            
-            
-			
+        get("/users", (req, res) -> {
+            String[] users = uS.getAllUsers();
+            String ans="";
+            for (String s : users) {
+                String[] info = s.split("&");
+                ans += "<tr><td>" + info[1] + "</td><td>" + info[0] + "</td></tr>";
+            }
+            return gson.toJson(ans);
+
             
         });
         }
