@@ -47,12 +47,15 @@ public class dbPersistanceImpl implements dbPersistance{
 		try {Connection conn = connection();
 			PreparedStatement pstmt = conn.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
 			pstmt.setString(1, email);
+			System.out.println("pre excute");
 			rs = pstmt.executeQuery();
+			System.out.println("post excute");
 			while(rs.next()){
 				if(rs.getString(1)=="1"){
 					correcto=true;
 				}
 			}
+			System.out.println("post todo");
 		} catch (SQLException ex) {
 			System.out.println(ex.getMessage());
 		}
