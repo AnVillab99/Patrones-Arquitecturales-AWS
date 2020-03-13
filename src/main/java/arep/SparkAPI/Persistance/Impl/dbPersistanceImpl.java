@@ -28,6 +28,7 @@ public class dbPersistanceImpl implements dbPersistance{
     private Connection connection(){
         Connection conn = null;
 		try {
+			System.out.println("pre conexion");
 			conn = DriverManager.getConnection(url, user, password);
 			System.out.println("Connected to the mysql server successfully.");
 		} catch (SQLException e) {
