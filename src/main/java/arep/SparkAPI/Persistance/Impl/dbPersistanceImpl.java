@@ -28,7 +28,6 @@ public class dbPersistanceImpl implements dbPersistance{
     private Connection connection(){
         Connection conn = null;
 		try {
-			System.out.println("pre conexion");
 			conn = DriverManager.getConnection(url, user, password);
 			System.out.println("Connected to the mysql server successfully.");
 		} catch (SQLException e) {
@@ -42,26 +41,20 @@ public class dbPersistanceImpl implements dbPersistance{
     @Override
     public Boolean userExists(String email) {
 		boolean correcto=false;
-		System.out.println("email: "+email);
 		ResultSet rs = null;
 		String SQL = "select exists(select * from Users WHERE email=(?))";
 		try {Connection conn = connection();
 			PreparedStatement pstmt = conn.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
 			pstmt.setString(1, email);
-			System.out.println("pre excute");
 			rs = pstmt.executeQuery();
-			System.out.println("post excute");
 			while(rs.next()){
 				if(rs.getString(1)=="1"){
 					correcto=true;
 				}
 			}
-			System.out.println("post todo");
 		} catch (SQLException ex) {
 			System.out.println(ex.getMessage());
 		}
-
-		System.out.println(" existe:" + correcto);
 		return correcto;
     }
 
@@ -92,7 +85,6 @@ public class dbPersistanceImpl implements dbPersistance{
 				System.out.println(ex.getMessage());
 				return false;
 			}
-			System.out.println(" id:" + id);
 			return true;
 		}
 		return false;

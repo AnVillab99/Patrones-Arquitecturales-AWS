@@ -4,11 +4,10 @@ import com.google.gson.Gson;
 
 import arep.SparkAPI.services.userServices;
 import arep.SparkAPI.services.servicesImpl.userServicesImpl;
-import spark.Filter;
 
 import static spark.Spark.*;
 
-import java.util.Set;
+
 
 public class SparkAPI {
 
@@ -50,12 +49,7 @@ public class SparkAPI {
             System.out.println("entrooooooooo");
             
             String[] raw = req.body().split(":");
-            for(String s :raw){
-                System.out.println("raw "+s);
-
-            }
             String[] values = raw[2].split("&");
-            System.out.println(values[0]+"   "+values[1]);
 
             
             String response = uS.registerUser(values[0], values[1]);
