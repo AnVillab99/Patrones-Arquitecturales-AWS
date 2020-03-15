@@ -1,6 +1,6 @@
 formulario = (function () {
     var datos;
-    var url = "http://localhost:4567/registro"
+    var url = "http://localhost:4567"
     
 
     return {
@@ -8,7 +8,7 @@ formulario = (function () {
         compararDatos: function(){
             let a =document.getElementById("name").value;
             let b =document.getElementById("email").value;
-            axios(url, {
+            axios(url+"/registro", {
                 method: 'POST',
                 mode: 'no-cors',
                 headers: {
