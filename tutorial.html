@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Tutorial</title>
+        <meta charset="UTF-8">        
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>        
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>        
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+        <!-- Custom fonts for this template -->
+        <link href="https://fonts.googleapis.com/css?family=Saira+Extra+Condensed:500,700" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Muli:400,400i,800,800i" rel="stylesheet">
+    </head>
+
+    <body id="page-top">
+        <nav id=sideNav"" class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
+            <a class="navbar-brand js-scroll-trigger" href="#page-top">
+                <h3 class="mb-0">Tutoriales patrones Arquitecturales AWS - Andres Villamil
+                    <span class="text-primary">Taylor</span>
+                </h3>                
+            </a>
+        </nav>>
+        <div class="container-fluid p-0">
+            <br><br>
+            <section class="resume-section align-items-center" style="padding: 3rem; padding-bottom: 0; padding-top: 0;">
+                <div class="w-100">
+                    <h2 class="mb-0">
+                        <span class="text-primary" style="font-size: medium"> EC2 - S3 - RDS</span>
+                    </h2>
+                    <p style="font-size: medium">
+                        En este turorial se demostrara cómo realizar un sitio web dinámico con los servicios de AWS. Se usaran los servicios: EC2, S3 y RDS.
+                        <br>En S3 se desplegaran los archivos estáticos.
+                        <br>En EC2 se desplegará una API Rest con Spark que repondera las peticiones.
+                        <br>En RDS se creará una base de datos para almacenar informacion basica de pruba.
+                        <br><br>El repositorio está disponible en: 
+                        <a href="https://github.com/AnVillab99/Patrones-Arquitecturales-AWS">Patrones-Arquitecturales-AWS</a>
+                    </p>                    
+                </div>
+            </section>
+
+            <hr class="m-0">
+            <section class="resume-section align-items-center" style="padding: 3rem; padding-bottom: 0; padding-top: 1rem;">
+
+
+
+                <div>
+                    <div class="resume-item d-flex flex-column flex-md-row justify-content-between mb-5">
+                        <div class="resume-content">
+                            <h3 class="mb-0">RDS</h3>
+                            <p>
+                                <br>1. Crear instancia de la base de datos
+                                <br>2. Generar la configuración basica
+                                <br>3. Crear un nuevo VPC
+                                <br>4. Probar conexión con una herramienta de base de datos
+                                <br>5. Crear tabla                         
+                                <br>6. Editar la aplicación en java para que se conecte a la base de datos
+                            </p>
+                        </div>
+                    </div>
+
+                    
+                </div>
+
+                <div class="resume-item d-flex flex-column flex-md-row justify-content-between mb-5">
+                    <div class="resume-content">
+                        <h3 class="mb-0">EC2</h3>
+                        <p>1. Crear instancia en EC2 con java. 
+                            <br>2. Configrurar VPC
+                            <br>4. Acceder a la instancia con ssh
+                            <br>5. Añadir java 1.8 , mvn y git
+                        <div style="padding-left: 3rem; padding-top: 0;">
+                            
+
+                            <h6>Instalar java 1.8:</h6>
+                            <br>sudo yum install java-1.8.0
+                            <br>sudo yum install java-1.8.0-openjdk-devel
+                            <br>sudo yum remove java-1.7.0-openjdk
+                            <h6>Instalar mvn: </h6>
+                            <br>sudo wget http://repos.fedorapeople.org/repos/dchen/apache-maven/epel-apache-maven.repo -O /etc/yum.repos.d/epel-apache-maven.repo
+                            <br>sudo sed -i s/\$releasever/6/g /etc/yum.repos.d/epel-apache-maven.repo
+                            <br>sudo yum install -y apache-maven
+                            <h6>Permitir que mvn use java 1.8: </h6>
+                            <br>sudo update-alternatives --config java
+                            <br>sudo update-alternatives --config javac
+                            <h6>Instalar git: </h6>
+                            <br>sudo yum install git
+                        </div>
+                        
+                        <br>6. Clonar la aplicacion
+                        <br>
+                        <small>El servidor debe estar configurado para aceptar peticiones CORS.</small>
+                        <br>7. Actualizar dependencias y ejecutar
+                        </p>
+                    </div>
+                </div>
+
+
+                <div class="resume-item d-flex flex-column flex-md-row justify-content-between mb-5">
+                    <div class="resume-content">
+                        <h3 class="mb-0">S3</h3>
+                        <p>1. Crear bucket
+                            <br>3. Subir archivos estáticos y ponerlos públicos
+                            <small>Las peticiones deben ser redirigidas a la IP publica del EC2.</small>
+                            <br>4. Configurar permisos para permitit CORS
+                    </div>
+                </div>
+
+                
+            </section>
+            <hr class="m-0">
+
+            <section class="resume-section p-3 p-lg-5 d-flex align-items-center" id="awards">
+                <div class="w-100">
+                    <h2 class="mb-5">Referencias</h2>
+                    <ul class="fa-ul mb-0">
+                        <li>Axios
+                            <a href="https://github.com/axios/axios">Axios </a>
+                        </li>
+                        
+                        <li>Cross-Origin Resource Sharing (CORS, Uso compartido de recursos entre orígenes)
+                            <a href="https://docs.aws.amazon.com/es_es/AmazonS3/latest/dev/cors.html">CORS</a>
+                        </li>
+                        
+                        <li>AWS Tutorial - Launch a RDS MySQL instance and connect to it using Linux EC2
+                            <a href="https://www.youtube.com/watch?v=xzCgeRxSzy4&t=741s">RDS-EC2</a>
+                        </li>
+                        
+                    </ul>
+                </div>
+            </section>
+        </div>
+    </body>
+</html>
