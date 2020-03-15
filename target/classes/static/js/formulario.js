@@ -1,6 +1,6 @@
 formulario = (function () {
     var datos;
-    var url = "http://localhost:4567"
+    var url = "http://ec2-34-235-113-51.compute-1.amazonaws.com:4567"
     
 
     return {
