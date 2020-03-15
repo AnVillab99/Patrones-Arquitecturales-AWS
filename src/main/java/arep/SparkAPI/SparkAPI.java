@@ -4,6 +4,7 @@ import com.google.gson.Gson;
 
 import arep.SparkAPI.services.userServices;
 import arep.SparkAPI.services.servicesImpl.userServicesImpl;
+import spark.Filter;
 
 import static spark.Spark.*;
 
@@ -38,14 +39,23 @@ public class SparkAPI {
             return "OK";
         });
 
-before((request, response) -> response.header("Access-Control-Allow-Origin", "*"));
+     before((request, response) -> response.header("Access-Control-Allow-Origin", "*"));
+        // after((Filter) (request, response) -> {
+        //     response.header("Access-Control-Allow-Origin", "*");
+        //     response.header("Access-Control-Allow-Methods", "*");
+        // });
         System.out.println("ya?");
         
         post("/registro", (req, res) -> {
             System.out.println("entrooooooooo");
             
             String[] raw = req.body().split(":");
+            for(String s :raw){
+                System.out.println("raw "+s);
+
+            }
             String[] values = raw[2].split("&");
+            System.out.println(values[0]+"   "+values[1]);
 
             
             String response = uS.registerUser(values[0], values[1]);

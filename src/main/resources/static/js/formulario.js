@@ -1,6 +1,6 @@
 formulario = (function () {
     var datos;
-    var url = "http://ec2-34-235-113-51.compute-1.amazonaws.com:4567"
+    var url = "http://localhost:4567/registro"
     
 
     return {
@@ -8,8 +8,18 @@ formulario = (function () {
         compararDatos: function(){
             let a =document.getElementById("name").value;
             let b =document.getElementById("email").value;
-            axios.post(url+'/registro', {
-                data: ":"+ a + "&" + b + ":",
+            axios(url, {
+                method: 'POST',
+                mode: 'no-cors',
+                headers: {
+                'Access-Control-Allow-Origin': '*',
+                'Content-Type': 'application/json',
+                },
+                withCredentials: true,
+                credentials: 'same-origin',
+                data: {
+                    data: ":"+ a + "&" + b + ":"
+                }
             })
             .then(function (response) {
                 console.log("ok");
@@ -29,6 +39,7 @@ formulario = (function () {
             })
             .catch(function (error) {
                 console.log("error");
+                console.log(error)
                 console.log(error.response);
             });
 

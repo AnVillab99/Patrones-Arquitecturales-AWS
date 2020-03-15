@@ -39,6 +39,7 @@
       <artifactId>spark-core</artifactId>
       <version>2.9.1</version>
     </dependency>
+    
     <dependency>
       <groupId>org.webjars</groupId>
       <artifactId>jquery</artifactId>
@@ -75,6 +76,23 @@
           </execution>
         </executions>
       </plugin>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>exec-maven-plugin</artifactId>
+        <version>1.2.1</version>
+    </plugin>
+    <plugin>
+    <groupId>org.apache.maven.plugins</groupId>
+    <artifactId>maven-jar-plugin</artifactId>
+    <version>3.2.0</version>
+    <configuration>
+      <archive>
+        <manifest>
+          <mainClass>arep.SparkAPI.SparkAPI</mainClass>
+        </manifest>
+      </archive>
+    </configuration>
+  </plugin>
     </plugins>
   </build>
 </project>
